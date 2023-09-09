@@ -21,10 +21,6 @@ License:        Apache-2.0
 URL:            %{gourl}
 Source:         %{gosource}
 
-# Upstream only support x86 and arm64, as that's all Bazel is built for
-# ExcludeArch is used, as the gometa macro will always add ExclusiveArch
-ExcludeArch:    armhfp i386 ppc ppc64 ppc64le s390x
-
 %description %{common_description}
 
 %gopkg
@@ -48,7 +44,14 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %check
 
 # httputil tests are intermittent (https://github.com/bazelbuild/bazelisk/issues/496)
-%gocheck -d httputil
+%gocheck \
+%ifarch x86_64 arm64
+%else
+# Upstream only support x86 and arm64, as that's all Bazel is built for
+# Bazelisk actually works fine on any Golang-supported arch, but the tests don't understand this
+  -d core \
+%endif
+  -d httputil
 %endif
 
 %files
