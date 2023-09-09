@@ -52,7 +52,6 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
   -d core \
 %endif
   -d httputil
-%endif
 
 %files
 %license LICENSE
