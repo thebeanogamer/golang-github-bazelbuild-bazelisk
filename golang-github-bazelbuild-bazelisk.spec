@@ -13,7 +13,7 @@ A user-friendly launcher for Bazel.}
 %global golicenses      LICENSE
 %global godocs          CONTRIBUTING.md README.md
 
-Name:           %{goname}
+Name:           bazelisk
 Release:        %autorelease
 Summary:        A user-friendly launcher for Bazel
 
