@@ -42,7 +42,9 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 
 %if %{with check}
 %check
-%gocheck
+
+# httputil tests are intermittent (https://github.com/bazelbuild/bazelisk/issues/496)
+%gocheck -d httputil
 %endif
 
 %files
