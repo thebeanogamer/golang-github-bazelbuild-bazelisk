@@ -21,6 +21,10 @@ License:        Apache-2.0
 URL:            %{gourl}
 Source:         %{gosource}
 
+# Upstream only support x86 and arm64, as that's all Bazel is built for
+# ExcludeArch is used, as the gometa macro will always add ExclusiveArch
+ExcludeArch:    armhfp i386 ppc ppc64 ppc64le s390x
+
 %description %{common_description}
 
 %gopkg
