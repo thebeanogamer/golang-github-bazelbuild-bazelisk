@@ -20,6 +20,7 @@ Summary:        A user-friendly launcher for Bazel
 License:        Apache-2.0
 URL:            %{gourl}
 Source:         %{gosource}
+Provides:       %{goname}
 
 %description %{common_description}
 
