@@ -44,14 +44,13 @@ install -m 0755 -vp %{gobuilddir}/bin/* %{buildroot}%{_bindir}/
 %check
 
 # httputil tests are intermittent (https://github.com/bazelbuild/bazelisk/issues/496)
-%gocheck \
 %ifarch x86_64 arm64
+%gocheck -d httputil
 %else
 # Upstream only support x86 and arm64, as that's all Bazel is built for
 # Bazelisk actually works fine on any Golang-supported arch, but the tests don't understand this
-  -d core \
+%gocheck -d core -d httputil
 %endif
-  -d httputil
 %endif
 
 %files
