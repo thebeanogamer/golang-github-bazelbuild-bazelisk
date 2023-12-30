@@ -17,7 +17,7 @@ You can call it just like you would call Bazel.}
 %global golicenses      LICENSE
 %global godocs          CONTRIBUTING.md README.md
 
-Name:           bazelisk
+Name:           %{goname}
 Release:        %autorelease
 Summary:        A user-friendly launcher for Bazel
 
