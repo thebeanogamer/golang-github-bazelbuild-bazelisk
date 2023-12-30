@@ -8,7 +8,11 @@ Version:                1.19.0
 %gometa -f
 
 %global common_description %{expand:
-A user-friendly launcher for Bazel.}
+Bazelisk is a wrapper for Bazel written in Go.
+It automatically picks a good version of Bazel given your current working directory, 
+downloads it from the official server (if required) and then transparently passes 
+through all command-line arguments to the real Bazel binary.
+You can call it just like you would call Bazel.}
 
 %global golicenses      LICENSE
 %global godocs          CONTRIBUTING.md README.md
